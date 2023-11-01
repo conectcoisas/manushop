@@ -13,10 +13,11 @@ function App() {
       </div>  
       <div className="container">
         <DndProvider backend={HTML5Backend}>         
-          <Column column={ColumnType.TO_DO} /> 
-          <Column column={ColumnType.IN_PROGRESS} />
-          <Column column={ColumnType.BLOCKED} /> 
-          <Column column={ColumnType.COMPLETED} />           
+          <Column column={ColumnType.PEDIDO} /> 
+          <Column column={ColumnType.CORTE} />
+          <Column column={ColumnType.SILK} /> 
+          <Column column={ColumnType.COSTURA} />    
+          <Column column={ColumnType.REVISAO} />                     
         </DndProvider>         
       </div>      
     </main>

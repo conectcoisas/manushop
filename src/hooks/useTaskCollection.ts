@@ -7,36 +7,44 @@ import { TaskModel } from '../utils/models';
 function useTaskCollection() {
   return useLocalStorage<{[key in ColumnType]: TaskModel[]; }> ('tasks', 
   {
-    Todo: [
+    pedidos: [
       {
         id: uuidv4(),
-        column: ColumnType.TO_DO,
+        column: ColumnType.PEDIDO,
         title: 'Task 1',
         color: 'blue.300',
       },
     ],
-    'In Progress': [
+    corte: [
       {
         id: uuidv4(),
-        column: ColumnType.IN_PROGRESS,
+        column: ColumnType.CORTE,
         title: 'Task 2',
         color: 'yellow.300',
       },
     ],
-    Blocked: [
+    silk: [
       {
         id: uuidv4(),
-        column: ColumnType.BLOCKED,
+        column: ColumnType.SILK,
         title: 'Task 3',
         color: 'red.300',
       },
     ],
-    Completed: [
+    costura: [
       {
         id: uuidv4(),
-        column: ColumnType.COMPLETED,
+        column: ColumnType.COSTURA,
         title: 'Task 4',
         color: 'green.300',
+      },
+    ],
+    revisao: [
+      {
+        id: uuidv4(),
+        column: ColumnType.REVISAO,
+        title: 'Task 5',
+        color: 'green.600',
       },
     ],
   });

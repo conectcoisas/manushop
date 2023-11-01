@@ -14,7 +14,7 @@ function useColumnTasks(column: ColumnType) {
   const columnTasks = tasks[column];
 
   const addEmptyTask = useCallback(() => {
-    debug(`Adding new empty task to ${column} column`);
+    debug(`Adicionar Pedido em ${column} column`);
     setTasks((allTasks) => {
       const columnTasks = allTasks[column];
 
@@ -25,7 +25,7 @@ function useColumnTasks(column: ColumnType) {
 
       const newColumnTask: TaskModel = {
         id: uuidv4(),
-        title: `New ${column} task`,
+        title: `Novo ${column}`,
         color: pickChakraRandomColor('.300'),
         column,
       };
@@ -39,7 +39,7 @@ function useColumnTasks(column: ColumnType) {
 
   const deleteTask = useCallback(
     (id: TaskModel['id']) => {
-      debug(`Removing task ${id}..`);
+      debug(`Removendo pedido ${id}..`);
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];
         return {
@@ -54,7 +54,7 @@ function useColumnTasks(column: ColumnType) {
   const updateTask = useCallback(
 
       (id: TaskModel['id'], updatedTask: Omit<Partial<TaskModel>, 'id'>) => {
-      debug(`Updating task ${id} with ${JSON.stringify(updateTask)}`);
+      debug(`Atualizando pedido ${id} with ${JSON.stringify(updateTask)}`);
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];
         return {
@@ -83,7 +83,7 @@ function useColumnTasks(column: ColumnType) {
         console.log(toColumnTasks)  
         console.log(movingTask)      
 
-        console.log(`Moving task ${movingTask?.id} from ${from} to ${column}`);
+        console.log(`Movendo pedido ${movingTask?.id} de ${from} para ${column}`);
 
         if (!movingTask) {
           console.log("!movingTask")
@@ -103,7 +103,7 @@ function useColumnTasks(column: ColumnType) {
   
   const swapTasks = useCallback(
     (i: number, j: number) => {
-      debug(`Swapping task ${i} with ${j} in ${column} column`);
+      debug(`Swapping pedido ${i} with ${j} in ${column} column`);
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];        
         return {

@@ -1,8 +1,9 @@
 export enum ColumnType {
-  TO_DO = 'Todo',
-  IN_PROGRESS = 'In Progress',
-  BLOCKED = 'Blocked',
-  COMPLETED = 'Completed',
+  PEDIDO = 'pedidos',
+  CORTE = 'corte',
+  SILK = 'silk',
+  COSTURA = 'costura',
+  REVISAO = 'revisao',
 }
 
 export enum ItemType {
