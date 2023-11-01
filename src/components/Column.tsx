@@ -1,0 +1,31 @@
+import {  Box,  Flex,  IconButton,  Stack  } from '@chakra-ui/react';
+import useColumnDrop from '../hooks/useColumnDrop';
+import useColumnTasks from '../hooks/useColumnTasks';
+import { ColumnType } from '../utils/enums';
+import Task from './Task';
+
+function Column({ column }: { column: ColumnType }) {
+
+  const { tasks, addEmptyTask, deleteTask, dropTaskFrom, swapTasks, updateTask } = useColumnTasks(column);
+  const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);  
+  
+  const ColumnTasks = 
+  tasks.map((task, index) => (<Task key={task.id} 
+    task={task}
+    index={index} 
+    onDropHover={swapTasks} 
+    onUpdate={updateTask} 
+    onDelete={deleteTask} /> 
+  )); 
+  
+  return (     
+    <Box className="colunas">         
+        <Box ref={dropRef} w='100%'  alignItems='center'>
+            <div className="cabecalhoColunas"></div>
+            {ColumnTasks}
+        </Box>   
+    </Box>   
+  );
+}
+
+export default Column;
