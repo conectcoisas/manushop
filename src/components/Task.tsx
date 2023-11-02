@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { memo } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
 import { TaskModel } from '../utils/models';
+import { useState } from 'react';
 
 type TaskProps = {
   index: number;
@@ -21,6 +22,8 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
   const minH = 50
   const maxH = 400
 
+  const [altura, setAltura] =  useState(minH)
+  
 
   return (    
       <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging ? 0.5 : 1} >    
@@ -31,8 +34,8 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               colorScheme="solid"
               color={'gray.700'}
               icon={ <EditIcon />  }             
-              opacity={0.7}   
-              onClick={handleDeleteClick} 
+              opacity={0.7}  
+              onClick={() => { setAltura(350) }}                
         />
         <IconButton  position="absolute" top={0} right={0} zIndex={100}    
               aria-label="open-task"
@@ -42,10 +45,10 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               icon={<ExternalLinkIcon />}
               _groupHover={{ opacity: .7, }}
               opacity={0}
-              onClick={() => {}}            
+              onClick={handleDeleteClick}       
         />
 
-        <Box bgColor={task.color} marginBottom='2px' display='flex' minH={minH} maxH={maxH} rounded="lg">
+        <Box bgColor={task.color} marginBottom='2px' display='flex' minH={50} h={altura} rounded="lg">
         </Box>
         
       </Box>
