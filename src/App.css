@@ -1,46 +1,58 @@
-html, body, div{
+html, body {
   margin:0;
   padding: 0;
+  background-color: rgb(252, 252, 252);
+  justify-content: center;
+  text-align: center;  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .topo{ 
-    display: block; 
-    justify-content: center;
-    text-align: center; 
-    font-size: larger;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;  
 }  
 
 .container {    
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between; 
+   
+}
+.anuncios{
+    text-align: center; 
+    display: block; 
+    height: 70px;
 }
 
-.colunas {
-    width: 20%;
+.pedidos {
+    width: 22%;
+    display: flex;  
+}
+.corte {
+    width: 60%;
+    display: flex;  
+}
+.silk {
+    width: 6%;
+    display: flex; 
+}
+.costura {
+    width: 6%;
     display: flex;
-    justify-content: center;  
-    justify-items: center;
-    background-color: rgb(241, 241, 241);
-}   
+}
+.revisao {
+    width: 6%;
+    display: flex;
+}
+
+@keyframes animaColunas {
+} 
 
 .cabecalhoColunas{
     margin: 0;
     padding: 0;
     display: block;
-    height: 80px; 
-    background-color: #f15f5f;  
-    justify-content: center;  
-    justify-items: center;
+    height: 70px;   
 } 
   
 .grupoPedido { 
-    display: block;
-    padding: 10px;
-    margin: 10px;
-    justify-content: center;  
-    justify-items: center;
-
+    padding: 15px; 
 }  
-
- 

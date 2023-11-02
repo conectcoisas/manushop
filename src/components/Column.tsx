@@ -1,8 +1,10 @@
-import {  Box,  Flex,  IconButton,  Stack  } from '@chakra-ui/react';
+import {  Box,  Flex,  IconButton,  Stack, color  } from '@chakra-ui/react';
 import useColumnDrop from '../hooks/useColumnDrop';
 import useColumnTasks from '../hooks/useColumnTasks';
 import { ColumnType } from '../utils/enums';
 import Task from './Task';
+
+
 
 function Column({ column }: { column: ColumnType }) {
 
@@ -16,15 +18,15 @@ function Column({ column }: { column: ColumnType }) {
     onDropHover={swapTasks} 
     onUpdate={updateTask} 
     onDelete={deleteTask} /> 
-  )); 
+  ));
   
   return (     
-    <Box className="colunas">         
+    <Box className={column}> 
         <Box ref={dropRef} w='100%'  alignItems='center'>
             <div className="cabecalhoColunas"></div>
-            {ColumnTasks}
-        </Box>   
-    </Box>   
+            {ColumnTasks}             
+        </Box>
+    </Box>  
   );
 }
 
