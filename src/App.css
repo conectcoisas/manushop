@@ -9,6 +9,8 @@ html, body {
 
 .topo{ 
     display: block;  
+    background-color: rgb(241, 241, 241);
+    color: gray.700;
 }  
 
 .container {    
@@ -20,39 +22,57 @@ html, body {
     text-align: center; 
     display: block; 
     height: 70px;
+    justify-content: center;
+    align-items: center;
 }
 
 .pedidos {
-    width: 22%;
+    width: 20%;
     display: flex;  
 }
 .corte {
-    width: 60%;
+    width: 20%;
     display: flex;  
 }
 .silk {
-    width: 6%;
+    width: 20%;
     display: flex; 
 }
 .costura {
-    width: 6%;
+    width: 20%;
     display: flex;
 }
 .revisao {
-    width: 6%;
+    width:20%;
     display: flex;
 }
+
+.grupoPedido { 
+    padding: 15px; 
+    height: 50px;
+    width: 20%;
+}  
 
 @keyframes animaColunas {
 } 
 
 .cabecalhoColunas{
     margin: 0;
-    padding: 0;
-    display: block;
-    height: 70px;   
+    padding: 0;    
 } 
+
+.pedidos .info-pedidos, .info-corte, .info-silk, .info-costura, .info-revisao{ 
+    height: 45px;   
+    display: block; 
+}
+.button-pedidos, .button-corte, .button-silk, .button-costura, .button-revisao {  
+    width: 100%;
+    height: 25px; 
+}
+
+.button-pedidos:hover, .button-corte:hover, .button-silk:hover, .button-costura:hover, .button-revisao:hover {  
+    background-color: rgb(241, 241, 241);
+}
   
-.grupoPedido { 
-    padding: 15px; 
-}  
+  
+  

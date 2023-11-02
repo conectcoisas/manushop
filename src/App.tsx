@@ -4,16 +4,13 @@ import Column from './components/Column';
 import { ColumnType } from './utils/enums';
 import './App.css'
 
-
-
 function App() {
   return (
     <main>             
       <div className="topo">    
         <h2>MANUSHOP - Painel de Produção</h2>
       </div>  
-      <div className="anuncios">    
-        <p>todos anuncios da empresa</p>
+      <div className="anuncios"> 
       </div>  
       <div className="container">
         <DndProvider backend={HTML5Backend}>  

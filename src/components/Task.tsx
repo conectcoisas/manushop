@@ -1,4 +1,5 @@
-import { DeleteIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+
 import { Box, IconButton, ScaleFade } from '@chakra-ui/react';
 import _ from 'lodash';
 import { memo } from 'react';
@@ -26,31 +27,31 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
         role="group"
         position="relative"
         rounded="lg"       
-        margin='10px'    
+        margin='5px' 
         cursor="grab"    
         userSelect="none"
         bgColor={task.color}
         opacity={isDragging ? 0.5 : 1}
       >
         <div className="grupoPedido">
-            {index}
+          
         </div>  
 
-        <IconButton
+        <IconButton 
           position="absolute"
           top={0}
           right={0}
           zIndex={100}
-          aria-label="delete-task"
-          size="md"
+          aria-label="ExternalLinkIcon-task"
+          size="lg"
           colorScheme="solid"
           color={'gray.700'}
-          icon={<DeleteIcon />}
+          icon={<ExternalLinkIcon />}
           opacity={0}
           _groupHover={{
             opacity: 1,
           }}
-          onClick={handleDeleteClick} />
+          />
       </Box>
     </ScaleFade>
   );

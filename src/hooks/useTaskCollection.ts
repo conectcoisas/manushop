@@ -1,5 +1,4 @@
 import { useLocalStorage } from 'usehooks-ts';
-
 import { v4 as uuidv4 } from 'uuid';
 import { ColumnType } from '../utils/enums';
 import { TaskModel } from '../utils/models';
@@ -44,7 +43,7 @@ function useTaskCollection() {
         id: uuidv4(),
         column: ColumnType.REVISAO,
         title: 'Task 5',
-        color: 'green.600',
+        color: 'pink.600',
       },
     ],
   });
