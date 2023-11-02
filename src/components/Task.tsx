@@ -1,6 +1,5 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-
-import { Box, IconButton, ScaleFade } from '@chakra-ui/react';
+import { Box, Button, IconButton, ScaleFade } from '@chakra-ui/react';
 import _ from 'lodash';
 import { memo } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
@@ -19,41 +18,29 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
   const { ref, isDragging } = useTaskDragAndDrop<HTMLDivElement>({ task, index: index }, handleDropHover  );
   const handleDeleteClick = () => {  handleDelete(task.id)  }
 
-  return (       
-    <ScaleFade in={true} unmountOnExit>
-      <Box alignItems='center' display='block'
-        ref={ref}
-        as="div"
-        role="group"
-        position="relative"
-        rounded="lg"       
-        margin='5px' 
-        cursor="grab"    
-        userSelect="none"
+  return (    
+      <Box ref={ref} as="div" role="group" position="relative" rounded="lg" 
+        w='100%' 
+        p='2' 
+        m='1'
+        cursor="grab"  
         bgColor={task.color}
-        opacity={isDragging ? 0.5 : 1}
-      >
-        <div className="grupoPedido">
-          
-        </div>  
+        opacity={isDragging ? 0.5 : 1}>           
 
-        <IconButton 
-          position="absolute"
-          top={0}
-          right={0}
-          zIndex={100}
-          aria-label="ExternalLinkIcon-task"
+        <IconButton position="absolute" top={0} right={0}  zIndex={100}
+          aria-label="open-task"
           size="lg"
           colorScheme="solid"
           color={'gray.700'}
           icon={<ExternalLinkIcon />}
+          _groupHover={{ opacity: 1, }}
           opacity={0}
-          _groupHover={{
-            opacity: 1,
-          }}
-          />
+          onClick={handleDeleteClick}
+        />
+        <Box>
+          <Button></Button>
+        </Box>
       </Box>
-    </ScaleFade>
   );
 }
 

@@ -12,21 +12,15 @@ function Column({ column }: { column: ColumnType }) {
  
   
   const ColumnTasks = 
-  tasks.map((task, index) => (<Task key={task.id} 
-    task={task}
-    index={index} 
-    onDropHover={swapTasks} 
+  tasks.map((task, index) => (<Task key={task.id} task={task} index={index}  onDropHover={swapTasks}  
     onUpdate={updateTask} 
     onDelete={deleteTask} /> 
   ));
   
   return (     
-    <Box className={column}>  
-        <Box ref={dropRef} w='100%'  alignItems='center'>
-            <div className="cabecalhoColunas">
-              <div className={"info-"+column}></div>
-              <button className={"button-"+column}>{column.toUpperCase()}</button>
-            </div>
+    <Box w='20%' display='flex' m='1'>  
+        <Box ref={dropRef} w='100%'>           
+            <Button onClick={ () => {addEmptyTask()} }>{column}</Button>
             {ColumnTasks}             
         </Box>
     </Box>  
