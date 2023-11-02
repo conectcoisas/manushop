@@ -1,11 +1,13 @@
 const colors = [
   'red',
-  'blue',
-  'yellow',
-  'cian',
-  'pink',
-  'green',
   'orange',
+  'yellow',
+  'green',
+  'teal',
+  'blue',
+  'cyan',
+  'purple',
+  'pink',
 ];
 
 export function swap<T>(arr: T[], i: number, j: number): T[] {
@@ -18,5 +20,5 @@ export function swap<T>(arr: T[], i: number, j: number): T[] {
 
 export function pickChakraRandomColor(variant = '') { 
   const color = colors[Math.floor(Math.random() * colors.length)];
-  return 'blue';
+  return color + variant;
 }

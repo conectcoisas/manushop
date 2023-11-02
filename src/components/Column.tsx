@@ -20,14 +20,10 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
   var retRezizeNumber = retRezize[column]
 
   return (     
-    <Box display='flex' m='1'  w={width}>  
-        <Box ref={dropRef} w='100%'>           
-            <Button onClick={ 
-              () => { 
-                addEmptyTask()
-                onRezize(retRezizeNumber)
-                }}
-            >{column}</Button>
+    <Box display='flex' w={width} margin='0' padding='1px'>  
+        <Box ref={dropRef} w='100%' margin='0' padding='0'>           
+            <Button margin='0' padding='0' onClick={ () => { addEmptyTask();  onRezize(retRezizeNumber) }}
+             w='100%'>{column}</Button>
             {ColumnTasks}             
         </Box>
     </Box>  

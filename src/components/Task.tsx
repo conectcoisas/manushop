@@ -1,5 +1,5 @@
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Box, Button, IconButton, ScaleFade } from '@chakra-ui/react';
+import { ExternalLinkIcon,ArrowUpDownIcon, DownloadIcon, EditIcon } from '@chakra-ui/icons';
+import { Box, Button, IconButton, ScaleFade, Text } from '@chakra-ui/react';
 import _ from 'lodash';
 import { memo } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
@@ -18,28 +18,36 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
   const { ref, isDragging } = useTaskDragAndDrop<HTMLDivElement>({ task, index: index }, handleDropHover  );
   const handleDeleteClick = () => {  handleDelete(task.id)  }
 
-  return (    
-      <Box ref={ref} as="div" role="group" position="relative" rounded="lg" 
-        w='100%' 
-        p='2' 
-        m='1'
-        cursor="grab"  
-        bgColor={task.color}
-        opacity={isDragging ? 0.5 : 1}>           
+  const minH = 50
+  const maxH = 400
 
-        <IconButton position="absolute" top={0} right={0}  zIndex={100}
-          aria-label="open-task"
-          size="lg"
-          colorScheme="solid"
-          color={'gray.700'}
-          icon={<ExternalLinkIcon />}
-          _groupHover={{ opacity: 1, }}
-          opacity={0}
-          onClick={handleDeleteClick}
+
+  return (    
+      <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging ? 0.5 : 1} >    
+    
+        <IconButton position="absolute" top={0} left={0} zIndex={101}
+              aria-label="edit-task" 
+              size="lg"      
+              colorScheme="solid"
+              color={'gray.700'}
+              icon={ <EditIcon />  }             
+              opacity={0.7}   
+              onClick={handleDeleteClick} 
         />
-        <Box>
-          <Button></Button>
+        <IconButton  position="absolute" top={0} right={0} zIndex={100}    
+              aria-label="open-task"
+              size="lg"
+              colorScheme="solid"
+              color={'gray.700'}
+              icon={<ExternalLinkIcon />}
+              _groupHover={{ opacity: .7, }}
+              opacity={0}
+              onClick={() => {}}            
+        />
+
+        <Box bgColor={task.color} marginBottom='2px' display='flex' minH={minH} maxH={maxH} rounded="lg">
         </Box>
+        
       </Box>
   );
 }

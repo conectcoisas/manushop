@@ -25,9 +25,9 @@ function App() {
     columnWhithRevisao ]
  
   const [rezize, setResize] = useState(0)
-  const btnSetRezize = (rezizeColumn) => { setResize(rezizeColumn); 
+  const btnSetRezize = (rezizeColumn: any) => { setResize(rezizeColumn); 
     console.log(rezizeColumn)
-   }
+  }
 
   return (
     <main>             
@@ -38,7 +38,7 @@ function App() {
       </div>  
       <div className="container">
         <DndProvider backend={HTML5Backend}>  
-          <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} /> 
+          <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} />               
           <Column width={columnsWhith[rezize][1]} column={ColumnType.CORTE} onRezize={btnSetRezize} />
           <Column width={columnsWhith[rezize][2]} column={ColumnType.SILK} onRezize={btnSetRezize}/> 
           <Column width={columnsWhith[rezize][3]} column={ColumnType.COSTURA} onRezize={btnSetRezize}/>    
