@@ -4,16 +4,17 @@ html, body {
   justify-content: center;
   text-align: center;  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .topo{ 
     display: flex; 
     justify-content: space-between;
-    padding: 5px;
-     
+    padding: 5px;     
 }  
 
-.container {    
+.container {   
+    color: rgb(128, 128, 128); 
     display: flex;
     justify-content: space-between; 
 }
@@ -21,7 +22,7 @@ html, body {
 .anuncios{
     text-align: center; 
     display: block; 
-    height: 70px;
+    height: 50px;
     justify-content: center;
     align-items: center;
 }

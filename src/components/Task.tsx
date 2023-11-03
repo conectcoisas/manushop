@@ -23,10 +23,11 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
   const maxH = 400
 
   const [altura, setAltura] =  useState(minH)
+  const [backGround, setBackGround] =  useState(task.color)
   
 
   return (    
-      <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging ? 0.5 : 1} >    
+      <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging? 0.7 : 1} >    
     
         <IconButton position="absolute" top={0} left={0} zIndex={101}
               aria-label="edit-task" 
@@ -35,7 +36,7 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               color={'gray.700'}
               icon={ <EditIcon />  }             
               opacity={0.7}  
-              onClick={() => { setAltura(350) }}                
+              onClick={() => { setAltura(500); setBackGround('white') }}                
         />
         <IconButton  position="absolute" top={0} right={0} zIndex={100}    
               aria-label="open-task"
@@ -46,9 +47,10 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               _groupHover={{ opacity: .7, }}
               opacity={0}
               onClick={handleDeleteClick}       
-        />
+        ></IconButton>
 
-        <Box bgColor={task.color} marginBottom='2px' display='flex' minH={50} h={altura} rounded="lg">
+        <Box background={backGround} marginBottom='2px' display='flex' minH={50} h={altura} rounded="lg">
+
         </Box>
         
       </Box>
