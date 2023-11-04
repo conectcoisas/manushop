@@ -5,6 +5,7 @@ import { memo } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
 import { TaskModel } from '../utils/models';
 import { useState } from 'react';
+import Login from '../Login';
 
 type TaskProps = {
   index: number;
@@ -36,7 +37,7 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               color={'gray.700'}
               icon={ <EditIcon />  }             
               opacity={0.7}  
-              onClick={() => { setAltura(500); setBackGround('white') }}                
+              onClick={() => { setAltura(350); setBackGround('white') }}                
         />
         <IconButton  position="absolute" top={0} right={0} zIndex={100}    
               aria-label="open-task"

@@ -20,7 +20,7 @@ function useColumnDrop(
       isOver: monitor.isOver(),
     }),
   });
-
+ 
   return {
     isOver,
     dropRef,
