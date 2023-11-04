@@ -4,9 +4,12 @@ import Column from './components/Column';
 import { ColumnType } from './utils/enums';
 import './App.css'
 import { useState } from 'react'
-import { Avatar, AvatarBadge, AvatarGroup, Wrap, WrapItem, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
-import { AbsoluteCenter, Center, Square, Circle, Text, Link, Image, Box } from '@chakra-ui/react'
-import Login from './Login';
+import { FormLabel, DrawerOverlay, DrawerCloseButton, Wrap, DrawerBody, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import { Drawer, Center, Button, Text, DrawerContent, DrawerHeader, Box, Input, Stack, InputGroup } from '@chakra-ui/react'
+import { InputLeftAddon, Select, Textarea, DrawerFooter, InputRightAddon } from '@chakra-ui/react'
+import { useDisclosure, ModalOverlay, IconButton  } from '@chakra-ui/react'
+import React from 'react'
+
 
 function App() {
 
@@ -39,17 +42,99 @@ function App() {
   const [showCostura, setShowCostura] = useState(true)
   const [showRevisao, setShowRevisao] = useState(true)
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const firstField = React.useRef()
+  const initialRef = React.useRef(null)
+  const finalRef = React.useRef(null)
 
+  const OverlayOne = () => (
+    <ModalOverlay
+      bg='blackAlpha.300'
+      backdropFilter='blur(10px) hue-rotate(90deg)'
+    />
+  )
+
+  const OverlayTwo = () => (
+    <ModalOverlay
+      bg='none'
+      backdropFilter='auto'
+      backdropInvert='80%'
+      backdropBlur='2px'
+    />
+  )
+
+  const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
   return (
     <main >  
-        <Center marginTop='20px'>        
+        <Center margin='20px'>        
           <Text fontSize={{ base: "24px", md: "30px", lg: "36px" }}>
-                    MANUSHOP - Painel de Produção
+                    MANUSHOP - Painel de Produção    
           </Text>
-        </Center>           
-        <Wrap position='absolute' top={0} right={0} margin='15px'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        </Center>  
+        <Box>    
+            <Drawer
+              isOpen={isOpen}
+              placement='right'       
+              onClose={onClose}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader borderBottomWidth='1px'>
+                  Create a new account
+                </DrawerHeader>
+
+                <DrawerBody>
+                  <Stack spacing='24px'>
+                    <Box>
+                      <FormLabel htmlFor='username'>Name</FormLabel>
+                      <Input                
+                        id='username'
+                        placeholder='Please enter user name'
+                      />
+                    </Box>
+
+                    <Box>
+                      <FormLabel htmlFor='url'>Url</FormLabel>
+                      <InputGroup>
+                        <InputLeftAddon>http://</InputLeftAddon>
+                        <Input
+                          type='url'
+                          id='url'
+                          placeholder='Please enter domain'
+                        />
+                        <InputRightAddon>.com</InputRightAddon>
+                      </InputGroup>
+                    </Box>
+
+                    <Box>
+                      <FormLabel htmlFor='owner'>Select Owner</FormLabel>
+                      <Select id='owner' defaultValue='segun'>
+                        <option value='segun'>Segun Adebayo</option>
+                        <option value='kola'>Kola Tioluwani</option>
+                      </Select>
+                    </Box>
+
+                    <Box>
+                      <FormLabel htmlFor='desc'>Description</FormLabel>
+                      <Textarea id='desc' />
+                    </Box>
+                  </Stack>
+                </DrawerBody>
+
+                <DrawerFooter borderTopWidth='1px'>
+                  <Button variant='outline' mr={3} onClick={onClose}>
+                    Cancel
+                  </Button>
+                  <Button colorScheme='blue'>Submit</Button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+     
+        </Box>        
+        <Wrap position='absolute' top={0} right={0} margin='15px'>          
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" onClick={onOpen}>
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
               </svg>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -161,7 +246,7 @@ function App() {
             : null }
 
           </Wrap>                                 
-        </DndProvider>   
+        </DndProvider>      
     </main>
   );
 }

@@ -5,6 +5,8 @@ import { ColumnType } from '../utils/enums';
 import Task from './Task';
 import { useState } from 'react'
 
+
+
 function Column({ width, column, onRezize }: { width: string, column: ColumnType, onRezize: Function}) {
 
   const { tasks, addEmptyTask, deleteTask, dropTaskFrom, swapTasks, updateTask } = useColumnTasks(column);
