@@ -28,17 +28,8 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
   
 
   return (    
-      <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging? 0.7 : 1} >    
-    
-        <IconButton position="absolute" top={0} left={0} zIndex={101}
-              aria-label="edit-task" 
-              size="lg"      
-              colorScheme="solid"
-              color={'gray.700'}
-              icon={ <EditIcon />  }             
-              opacity={0.7}  
-              onClick={() => { setAltura(350); setBackGround('white') }}                
-        />
+      <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging? 1 : 1} >        
+
         <IconButton  position="absolute" top={0} right={0} zIndex={100}    
               aria-label="open-task"
               size="lg"
