@@ -1,18 +1,18 @@
-import { ExternalLinkIcon,ArrowUpDownIcon, DownloadIcon, EditIcon } from '@chakra-ui/icons';
-import { Box, Button, IconButton, ScaleFade, Text } from '@chakra-ui/react';
+import { ExternalLinkIcon, EditIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons';
+import { Box, Button, IconButton, Text } from '@chakra-ui/react';
 import _ from 'lodash';
 import { memo, useEffect } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
 import { TaskModel } from '../utils/models';
 import { useState } from 'react'
-import { FormLabel, WrapItem, Wrap, Center, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import { FormLabel, Wrap, WrapItem, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import { Table, TableContainer, Thead, Tr, Input, Th, Tbody, Tfoot, Td } from '@chakra-ui/react'
-import { useToast, TableCaption, InputRightAddon } from '@chakra-ui/react'
+import { useToast, Icon } from '@chakra-ui/react'
 import { useDisclosure, Modal, ModalOverlay, ModalContent, ModalBody, ModalFooter, FormControl, ModalHeader, ModalCloseButton } from '@chakra-ui/react'
 import React from 'react'
-import { Skeleton, SkeletonCircle, SkeletonText,  } from '@chakra-ui/react'
+import { SimpleGrid, Divider, Stack, Image } from '@chakra-ui/react'
 import moment from 'moment'
-
+import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 
 import {
   Tag,
@@ -79,60 +79,87 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
               }}       
         ></IconButton>
 
-        <Box background={backGround} marginBottom='5px' display='flex' minH={50} h={altura} rounded="lg">
-             
+        <Box background={backGround} marginBottom='5px' display='flex' minH={50} h={altura} rounded="lg">  
+
+              <Wrap display='flex' opacity={.7}  >      
+                  <WrapItem>
+                    <Avatar name='M L' size='sm' backgroundColor='yellow' margin='8px' color='black'/>
+                  </WrapItem>      
+                  <WrapItem>                  
+                    <Text as='b' marginTop='10px' fontSize='sm' color='white'>{task.id}</Text>
+                  </WrapItem>             
+              </Wrap>
+
              <Modal size='6xl'
                     initialFocusRef={initialRef}
                     finalFocusRef={finalRef}
                     isOpen={isOpen}
                     onClose={onClose}
                     closeOnOverlayClick={false}
-                    
-
                   >
                     {overlay}
                     <ModalOverlay />
                     
-                    
-                    <ModalContent >                      
-                      
-                      <ModalHeader>         
+                    <ModalContent > 
+
+                      <ModalHeader margin='0px' color='blue.500'>         
                             Pedido {task.id} -  { moment().format('DD/MM/YY')  } - Shopee 
                       </ModalHeader>    
                       <ModalCloseButton />
                       
+                      <Divider />
+                        <FormControl color='blue.500'>                              
+                          <SimpleGrid columns={2}  margin='30px' color='blue.500' >
+                              <Box>
+                                <Box display='flex' margin='0px' padding='0px' color='blue.500'> 
+                                  <FormLabel margin='0px' padding='0px' color='blue.500'>Envio:</FormLabel>
+                                  <FormLabel margin='0px' padding='0px' marginLeft='5px' >06/12/2023</FormLabel>
+                                </Box >
+                                <Box display='flex'> 
+                                  <FormLabel margin='0px' padding='0px' color='blue.500'>Prazo Fabricação:</FormLabel>
+                                  <FormLabel margin='0px' padding='0px' marginLeft='5px'>5 dias</FormLabel>
+                                </Box>  
+                                <Box display='flex'> 
+                                  <FormLabel margin='0px' padding='0px' color='blue.500'>Cliente:</FormLabel>
+                                  <FormLabel margin='0px' padding='0px' marginLeft='5px'>Danilo Santos Gomes</FormLabel>
+                                </Box> 
+                                <Box display='flex'> 
+                                  <FormLabel margin='0px' padding='0px' color='blue.500'>Telefone:</FormLabel>
+                                  <FormLabel margin='0px' padding='0px' marginLeft='5px'>(16) 982309101</FormLabel>
+                                </Box>                    
+                              </Box>
+                              <Box >
+                                <Stack direction='row-reverse'>
+                              
+                                  <Image
+                                    boxSize='100px'
+                                    objectFit='cover'
+                                    src='https://scontent.frao1-2.fna.fbcdn.net/v/t1.6435-9/123116188_198588911670476_4405785766780635308_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=84c479&_nc_ohc=1exiLBgRJFoAX-CJa43&_nc_ht=scontent.frao1-2.fna&oh=00_AfDfia3A4XAZJey6ek65Emrn_wZmNK-D1qZ2A64476wvIA&oe=6570DFF3'
+                                    alt='Dan Abramov'
+                                  />
+                                   <Image
+                                    boxSize='100px'
+                                    objectFit='cover'
+                                    src='https://br.web.img3.acsta.net/r_654_368/newsv7/18/06/22/22/52/1801743.jpg'
+                                    alt='Dan Abramov'
+                                  />
+                                   <Image
+                                    boxSize='100px'
+                                    objectFit='cover'
+                                    src='https://conteudo.imguol.com.br/c/entretenimento/16/2017/06/27/naruto-1498593686428_v2_900x506.png.webp'
+                                    alt='Dan Abramov'></Image>
+                                
+                                </Stack>
+                              </Box>
+                          </SimpleGrid>
+                    
+                          <Divider />
 
-                        <FormControl>                         
-                           
-                           <Box display='flex' marginLeft='20px'>
-                            <Box>
-                              <Box display='flex' margin='0px' padding='0px'> 
-                                <FormLabel margin='0px' padding='0px'>Envio:</FormLabel>
-                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>06/12/2023</FormLabel>
-                              </Box >
-                              <Box display='flex'> 
-                                <FormLabel margin='0px' padding='0px'>Prazo Fabricação:</FormLabel>
-                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>5 dias</FormLabel>
-                              </Box>  
-                              <Box display='flex'> 
-                                <FormLabel margin='0px' padding='0px'>Cliente:</FormLabel>
-                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>Danilo Santos Gomes</FormLabel>
-                              </Box> 
-                              <Box display='flex'> 
-                                <FormLabel margin='0px' padding='0px'>Telefone:</FormLabel>
-                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>(16) 982309101</FormLabel>
-                              </Box>                    
-                            </Box>
-                            <Box backgroundColor='black'>
-                              a
-                            </Box>
-                          </Box>
-
-                           <Box display='flex' justifyContent='space-evenly' margin='20px'>
+                          <Box display='flex' justifyContent='space-evenly' margin='20px' >
                            <TableContainer>
-                              <Table variant='striped' colorScheme='teal' size='sm'>                                
-                                <Thead>
-                                  <Tr>
+                              <Table variant='striped' colorScheme='teal' size='sm' color='blue.500'>                                
+                                <Thead >
+                                  <Tr >
                                     <Th isNumeric>Quantidade</Th>
                                     <Th>Produtos</Th>
                                     <Th >Cor</Th>
@@ -146,35 +173,58 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
                                     <Td>Lorem ipsum</Td>
                                     <Td>Verde</Td>
                                     <Td>GG</Td>
-                                    <Td>GG</Td>
+                                    <Td>
+                                      <HStack color='blue.500'>                                        
+                                      <Icon as={EditIcon}  boxSize={5} color='blue.500'/>    
+                                        <Icon as={DeleteIcon} boxSize={5} color='blue.500'/> 
+                                        <Icon as={AddIcon} boxSize={5}  color='blue.500'/>
+                                      </HStack>                         
+                                    </Td>
                                   </Tr>
                                   <Tr>
                                     <Td isNumeric>5</Td>
                                     <Td>Lorem ipsum</Td>
                                     <Td>Vermelho</Td>
                                     <Td >GG</Td>
-                                    <Td>GG</Td>
+                                    <Td>
+                                      <HStack color='blue.500'>                                        
+                                        <Icon as={EditIcon}  boxSize={5} color='blue.500'/>    
+                                        <Icon as={DeleteIcon} boxSize={5} color='blue.500'/> 
+                                        <Icon as={AddIcon} boxSize={5}  color='blue.500'/>
+                                      </HStack>                         
+                                    </Td>
                                   </Tr>
                                   <Tr>
                                     <Td isNumeric>10</Td>
                                     <Td>Lorem ipsum</Td>
                                     <Td>Azul</Td>
                                     <Td >GG</Td>
-                                    <Td>GG</Td>
+                                    <Td>
+                                      <HStack color='blue.500'>
+                                      <Icon as={EditIcon}  boxSize={5} color='blue.500'/>    
+                                        <Icon as={DeleteIcon} boxSize={5} color='blue.500'/> 
+                                        <Icon as={AddIcon} boxSize={5}  color='blue.500'/>
+                                      </HStack>                         
+                                    </Td>
                                   </Tr>
                                   <Tr>
                                     <Td isNumeric>12</Td>
                                     <Td>Lorem ipsum</Td>
                                     <Td>Grey</Td>
                                     <Td >GG</Td>
-                                    <Td>GG</Td>
+                                    <Td>
+                                      <HStack color='blue.500'>
+                                      <Icon as={EditIcon}  boxSize={5} color='blue.500'/>    
+                                        <Icon as={DeleteIcon} boxSize={5} color='blue.500'/> 
+                                        <Icon as={AddIcon} boxSize={5}  color='blue.500'/>
+                                      </HStack>                         
+                                    </Td>
                                   </Tr>
                                 </Tbody>
                                
                               </Table>
                             </TableContainer>          
-                           </Box> 
-
+                          </Box> 
                         </FormControl>                     
 
                       <ModalFooter> 
@@ -194,8 +244,7 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
                       </ModalFooter>
                     </ModalContent>
                     
-                  </Modal>
-        
+             </Modal>
         </Box>
         
     

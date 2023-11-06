@@ -22,12 +22,9 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
 
   return (     
     <Box w={width} margin='0' padding='1px'>      
-     
-                       
                 <Box ref={dropRef} minHeight='80px'>  
                     {ColumnTasks}             
                 </Box>
-
     </Box>  
   );
 }
