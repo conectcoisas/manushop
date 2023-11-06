@@ -24,9 +24,10 @@ function useColumnTasks(column: ColumnType) {
       }
 
       const newColumnTask: TaskModel = {
-        id: uuidv4(),
+        id:  Math.floor(Math.random() * 9999).toString(),
+        //id: uuidv4(),
         title: `Novo ${column}`,
-        color: pickChakraRandomColor('.400'),
+        color: pickChakraRandomColor('.100'),
         column,
       };
 

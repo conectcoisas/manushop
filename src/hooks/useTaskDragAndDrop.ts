@@ -25,6 +25,7 @@ export function useTaskDragAndDrop<T extends HTMLElement>(
     accept: ItemType.TASK,
     hover: (item, monitor) => {
       if (!ref.current) {
+        console.log("aqui")
         return;
       }
 

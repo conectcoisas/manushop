@@ -11,7 +11,6 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
 
   const { tasks, addEmptyTask, deleteTask, dropTaskFrom, swapTasks, updateTask } = useColumnTasks(column);
   const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);  
- // const { dropRef2, isOver2 } = useColumnDrop(column, dropTaskFrom);
 
   const ColumnTasks = 
   tasks.map((task, index) => (  <Task key={task.id} task={task} index={index}  
@@ -21,13 +20,11 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
   var retRezizeNumber = retRezize[column]
 
   return (     
-    <Box w={width} margin='0' padding='1px'>      
-     
-                       
-                <Box ref={dropRef} minHeight='80px'>  
-                    {ColumnTasks}             
-                </Box>
-
+    <Box w={width} margin='0' padding='1px'>                           
+        <Box ref={dropRef} minHeight='80px'> 
+             <Button onClick={addEmptyTask}>B</Button> 
+             {ColumnTasks}             
+        </Box>
     </Box>  
   );
 }
