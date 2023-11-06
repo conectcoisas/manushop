@@ -1,16 +1,18 @@
 import { ExternalLinkIcon,ArrowUpDownIcon, DownloadIcon, EditIcon } from '@chakra-ui/icons';
-import { Box, Button, IconButton, ScaleFade, Text, WrapItem } from '@chakra-ui/react';
+import { Box, Button, IconButton, ScaleFade, Text } from '@chakra-ui/react';
 import _ from 'lodash';
 import { memo, useEffect } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
 import { TaskModel } from '../utils/models';
 import { useState } from 'react'
-import { FormLabel, DrawerOverlay, DrawerCloseButton, Wrap, DrawerBody, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
-import { Drawer, Center, DrawerContent, DrawerHeader, Input, Stack, InputGroup } from '@chakra-ui/react'
-import { useToast, Avatar, InputRightAddon } from '@chakra-ui/react'
+import { FormLabel, WrapItem, Wrap, Center, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import { Table, TableContainer, Thead, Tr, Input, Th, Tbody, Tfoot, Td } from '@chakra-ui/react'
+import { useToast, TableCaption, InputRightAddon } from '@chakra-ui/react'
 import { useDisclosure, Modal, ModalOverlay, ModalContent, ModalBody, ModalFooter, FormControl, ModalHeader, ModalCloseButton } from '@chakra-ui/react'
 import React from 'react'
-import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import { Skeleton, SkeletonCircle, SkeletonText,  } from '@chakra-ui/react'
+import moment from 'moment'
+
 
 import {
   Tag,
@@ -54,27 +56,11 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
         bg='blackAlpha.300'
         backdropFilter='blur(10px) hue-rotate(90deg)'
       />
-    )
-
-    const OverlayTwo = () => (
-      <ModalOverlay
-        bg='none'
-        backdropFilter='auto'
-        backdropInvert='80%'
-        backdropBlur='2px'
-      />
-    )
+  )
 
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
   const toast = useToast()
-
-  const [primeiraVez, setPrimeiraVez] = useState(true)
-  const primeiraVezFalse = () => setPrimeiraVez(false)
-
-  const numeroAleatorio = useEffect(() => {    
-    Math.floor(Math.random() * 9999)
-  }, []); 
 
   return (    
       <Box ref={ref} as="div" role="group" position="relative"  w='100%' cursor="grab" opacity={isDragging? 1 : 1} >        
@@ -94,95 +80,122 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
         ></IconButton>
 
         <Box background={backGround} marginBottom='5px' display='flex' minH={50} h={altura} rounded="lg">
-            <Box>           
-                  <Modal
+             
+             <Modal size='6xl'
                     initialFocusRef={initialRef}
                     finalFocusRef={finalRef}
                     isOpen={isOpen}
                     onClose={onClose}
                     closeOnOverlayClick={false}
+                    
+
                   >
                     {overlay}
                     <ModalOverlay />
-                    <ModalContent>
-                      <ModalHeader>Create your account</ModalHeader>
+                    
+                    
+                    <ModalContent >                      
+                      
+                      <ModalHeader>         
+                            Pedido {task.id} -  { moment().format('DD/MM/YY')  } - Shopee 
+                      </ModalHeader>    
                       <ModalCloseButton />
-                      <ModalBody pb={6}>
-                        <FormControl>
-                          <FormLabel>First name</FormLabel>
-                          <Input ref={initialRef} placeholder='First name' />
-                        </FormControl>
+                      
 
-                        <FormControl mt={4}>
-                          <FormLabel>Last name</FormLabel>
-                          <Input placeholder='Last name' />
-                        </FormControl>
-                      </ModalBody>
-                      <Box padding='6' boxShadow='lg' bg='white'>
-                        <SkeletonCircle size='10' />
-                        <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
-                      </Box>
-                      <ModalFooter>
-                      <Button
-                        onClick={() =>
-                          toast({
-                            position: 'bottom-left',
-                            render: () => (
-                              <Box color='white' p={3} bg='blue.500'>
-                                Hello World
-                              </Box>
-                            ),
-                          })
-                        }
-                      >
-                        Show Toast
-                      </Button>
-                      <Button
-                          onClick={() =>
-                            toast({
-                              title: 'Account created.',
-                              description: "We've created your account for you.",
-                              status: 'success',
-                              duration: 9000,
-                              isClosable: true,
-                            })
-                          }
-                        >
-                          Show Toast
-                        </Button>
-                        <Button
-                          onClick={() => {
-                            // Create an example promise that resolves in 5s
+                        <FormControl>                         
+                           
+                           <Box display='flex' marginLeft='20px'>
+                            <Box>
+                              <Box display='flex' margin='0px' padding='0px'> 
+                                <FormLabel margin='0px' padding='0px'>Envio:</FormLabel>
+                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>06/12/2023</FormLabel>
+                              </Box >
+                              <Box display='flex'> 
+                                <FormLabel margin='0px' padding='0px'>Prazo Fabricação:</FormLabel>
+                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>5 dias</FormLabel>
+                              </Box>  
+                              <Box display='flex'> 
+                                <FormLabel margin='0px' padding='0px'>Cliente:</FormLabel>
+                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>Danilo Santos Gomes</FormLabel>
+                              </Box> 
+                              <Box display='flex'> 
+                                <FormLabel margin='0px' padding='0px'>Telefone:</FormLabel>
+                                <FormLabel margin='0px' padding='0px' marginLeft='5px'>(16) 982309101</FormLabel>
+                              </Box>                    
+                            </Box>
+                            <Box backgroundColor='black'>
+                              a
+                            </Box>
+                          </Box>
+
+                           <Box display='flex' justifyContent='space-evenly' margin='20px'>
+                           <TableContainer>
+                              <Table variant='striped' colorScheme='teal' size='sm'>                                
+                                <Thead>
+                                  <Tr>
+                                    <Th isNumeric>Quantidade</Th>
+                                    <Th>Produtos</Th>
+                                    <Th >Cor</Th>
+                                    <Th >Tamanho</Th>   
+                                    <Th >Ações</Th>                               
+                                  </Tr>
+                                </Thead>
+                                <Tbody>
+                                  <Tr>
+                                    <Td isNumeric>2</Td>
+                                    <Td>Lorem ipsum</Td>
+                                    <Td>Verde</Td>
+                                    <Td>GG</Td>
+                                    <Td>GG</Td>
+                                  </Tr>
+                                  <Tr>
+                                    <Td isNumeric>5</Td>
+                                    <Td>Lorem ipsum</Td>
+                                    <Td>Vermelho</Td>
+                                    <Td >GG</Td>
+                                    <Td>GG</Td>
+                                  </Tr>
+                                  <Tr>
+                                    <Td isNumeric>10</Td>
+                                    <Td>Lorem ipsum</Td>
+                                    <Td>Azul</Td>
+                                    <Td >GG</Td>
+                                    <Td>GG</Td>
+                                  </Tr>
+                                  <Tr>
+                                    <Td isNumeric>12</Td>
+                                    <Td>Lorem ipsum</Td>
+                                    <Td>Grey</Td>
+                                    <Td >GG</Td>
+                                    <Td>GG</Td>
+                                  </Tr>
+                                </Tbody>
+                               
+                              </Table>
+                            </TableContainer>          
+                           </Box> 
+
+                        </FormControl>                     
+
+                      <ModalFooter> 
+                        <Button colorScheme='blue' mr={3} onClick={() => {                           
                             const examplePromise = new Promise((resolve, reject) => {
-                              setTimeout(() => resolve(200), 5000)
-                            })
-
-                            // Will display the loading toast until the promise is either resolved
-                            // or rejected.
+                              setTimeout(() => resolve(200), 1000)
+                            })                           
                             toast.promise(examplePromise, {
-                              success: { title: 'Promise resolved', description: 'Looks great' },
-                              error: { title: 'Promise rejected', description: 'Something wrong' },
-                              loading: { title: 'Promise pending', description: 'Please wait' },
+                              success: { title: 'Processado', description: 'Sucesso' },
+                              error: { title: 'Erro no processo', description: 'Tente novamente' },
+                              loading: { title: 'Processando', description: 'Aguarde um momento' },
                             })
-                          }}
-                        >
-                          Show Toast
+                          }}>
+                          Salvar
                         </Button>
-                        <Button colorScheme='blue' mr={3}>
-                          Save
-                        </Button>
-
-                        <Button onClick={onClose}>Cancel</Button>
+                        <Button onClick={onClose}>Cancelar</Button>
                       </ModalFooter>
                     </ModalContent>
+                    
                   </Modal>
-            </Box> 
-
-            { primeiraVez? 
-                <span> {} </span>  
-            : null }
-           
-            {}
+        
         </Box>
         
     
