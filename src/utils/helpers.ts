@@ -1,7 +1,7 @@
 const colors = [
-  'rgb(214, 214, 214)',  
-  'rgb(43, 211, 0)',  
-  'rgb(7, 197, 105)',  
+  'gray',  
+  'rgb(255, 95, 95)',  
+  'rgb(7, 197, 105)',
 ];
 
 export function swap<T>(arr: T[], i: number, j: number): T[] {

@@ -11,10 +11,10 @@ html, body {
     display: flex; 
     justify-content: space-between;
     padding: 5px;     
-}  
+} 
 
 .container {   
-    color: rgb(128, 128, 128); 
+    color: rgb(255, 95, 95); 
     display: flex;
     justify-content: space-between; 
 }

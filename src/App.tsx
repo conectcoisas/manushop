@@ -9,6 +9,7 @@ import { Drawer, Center, Button, Text, DrawerContent, DrawerHeader, Box, Input, 
 import { InputLeftAddon, Select, Textarea, DrawerFooter, InputRightAddon } from '@chakra-ui/react'
 import { useDisclosure, ModalOverlay, IconButton  } from '@chakra-ui/react'
 import React from 'react'
+import { BgColorsOutlined, PictureOutlined, PartitionOutlined } from '@ant-design/icons';
 
 
 function App() {
@@ -32,11 +33,10 @@ function App() {
     columnWhithRevisao ]
  
   const [rezize, setResize] = useState(0)
-  const btnSetRezize = (rezizeColumn: any) => { setResize(rezizeColumn); 
-    console.log(rezizeColumn)
-  }
+  const btnSetRezize = (rezizeColumn: any) => { setResize(rezizeColumn) } 
 
   const [showPedidos, setShowPedidos] = useState(true)
+
   const [showCorte, setShowCorte] = useState(true)
   const [showSilk, setShowSilk] = useState(true)
   const [showCostura, setShowCostura] = useState(true)
@@ -118,25 +118,21 @@ function App() {
                   <TabList>
                     <Tab>Corte</Tab>
                     <Tab>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                        </svg>
+                        <BgColorsOutlined color='black'/>                       
                     </Tab>
                     <Tab>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                        </svg>                  
+                        <PartitionOutlined />  
                     </Tab>    
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} />    
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.CORTE} onRezize={btnSetRezize} />    
                     </TabPanel>
                     <TabPanel padding='0px' paddingTop='15px'> 
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.SILK} onRezize={btnSetRezize}/>              
                     </TabPanel >
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.CORTE} onRezize={btnSetRezize} /> 
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} /> 
                     </TabPanel> 
                   </TabPanels>
                 </Tabs>
@@ -147,22 +143,18 @@ function App() {
                   <TabList>
                   <Tab>Silk</Tab>
                     <Tab>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                        </svg>
+                        <PictureOutlined />
                     </Tab>
                     <Tab>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                        </svg>                  
+                        <BgColorsOutlined />                 
                     </Tab>      
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} />    
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.SILK} onRezize={btnSetRezize} />    
                     </TabPanel >
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.SILK} onRezize={btnSetRezize}/>              
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize}/>              
                     </TabPanel>
                     <TabPanel padding='0px' paddingTop='15px'> 
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.CORTE} onRezize={btnSetRezize} /> 

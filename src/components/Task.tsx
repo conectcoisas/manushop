@@ -11,7 +11,6 @@ import { useToast, Icon } from '@chakra-ui/react'
 import { useDisclosure, Modal, ModalOverlay, ModalContent, ModalBody, ModalFooter, FormControl, ModalHeader, ModalCloseButton } from '@chakra-ui/react'
 import React from 'react'
 import { SimpleGrid, Divider, Stack, Image } from '@chakra-ui/react'
-import moment from 'moment'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 
 import {
@@ -83,10 +82,10 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
 
               <Wrap display='flex' opacity={.7}  >      
                   <WrapItem>
-                    <Avatar name='M L' size='sm' backgroundColor='yellow' margin='8px' color='black'/>
+                    <Avatar name='M L' size='sm' backgroundColor='yellow' margin='8px' color='black' onClick={handleDeleteClick} cursor='pointer'/>
                   </WrapItem>      
                   <WrapItem>                  
-                    <Text as='b' marginTop='10px' fontSize='sm' color='white'>{task.id}</Text>
+                    <Text as='b' marginTop='10px' fontSize='sm' color='white' >{task.id}</Text>
                   </WrapItem>             
               </Wrap>
 
@@ -103,7 +102,7 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
                     <ModalContent > 
 
                       <ModalHeader margin='0px' color='blue.500'>         
-                            Pedido {task.id} -  { moment().format('DD/MM/YY')  } - Shopee 
+                            Pedido {task.id} - 06/10/2024 - Shopee 
                       </ModalHeader>    
                       <ModalCloseButton />
                       
