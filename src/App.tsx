@@ -8,9 +8,14 @@ import { FormLabel, DrawerOverlay, DrawerCloseButton, Wrap, DrawerBody, Tabs, Ta
 import { Drawer, Center, Button, Text, DrawerContent, DrawerHeader, Box, Input, Stack, InputGroup } from '@chakra-ui/react'
 import { InputLeftAddon, Select, Textarea, DrawerFooter, InputRightAddon } from '@chakra-ui/react'
 import { useDisclosure, ModalOverlay, IconButton  } from '@chakra-ui/react'
-import React from 'react'
-import { BgColorsOutlined, PictureOutlined, PartitionOutlined } from '@ant-design/icons';
+import   BsFillAirplaneEnginesFill from 'react-icons/fa'
+import { MDBIcon } from 'mdb-react-ui-kit'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
+<MDBIcon fas icon="broom" />
+
+import React from 'react'
 
 function App() {
 
@@ -103,7 +108,10 @@ function App() {
            { showPedidos ? 
                 <Tabs w='25%'>
                   <TabList>
-                    <Tab>Pedidos</Tab>              
+                    <Tab>Pedidos</Tab>  
+                    <Tab>               
+                        <MDBIcon fas icon="calendar-alt" />
+                    </Tab>             
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
@@ -118,11 +126,14 @@ function App() {
                   <TabList>
                     <Tab>Corte</Tab>
                     <Tab>
-                        <BgColorsOutlined color='black'/>                       
+                        <MDBIcon fas icon="fill-drip" />
                     </Tab>
-                    <Tab>
-                        <PartitionOutlined />  
-                    </Tab>    
+                    <Tab>               
+                        <MDBIcon fab icon="accusoft" />
+                    </Tab>
+                    <Tab>               
+                      <MDBIcon far icon="calendar" />
+                    </Tab>      
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
@@ -133,7 +144,10 @@ function App() {
                     </TabPanel >
                     <TabPanel padding='0px' paddingTop='15px'> 
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} /> 
-                    </TabPanel> 
+                    </TabPanel>
+                    <TabPanel padding='0px' paddingTop='15px'> 
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} /> 
+                    </TabPanel>  
                   </TabPanels>
                 </Tabs>
             : null }
@@ -143,10 +157,10 @@ function App() {
                   <TabList>
                   <Tab>Silk</Tab>
                     <Tab>
-                        <PictureOutlined />
+                        <MDBIcon fas icon="camera" />
                     </Tab>
                     <Tab>
-                        <BgColorsOutlined />                 
+                        <MDBIcon far icon="calendar" />
                     </Tab>      
                   </TabList>
                   <TabPanels>
@@ -166,7 +180,10 @@ function App() {
             { showCostura ? 
                 <Tabs w='25%'>
                   <TabList>
-                    <Tab>Costura</Tab>              
+                    <Tab>Costura</Tab>  
+                    <Tab>               
+                        <MDBIcon fas icon="calendar-alt" />
+                    </Tab>               
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
@@ -179,7 +196,10 @@ function App() {
            { showRevisao ? 
                 <Tabs w='25%'>
                   <TabList>
-                    <Tab>Revisao</Tab>              
+                    <Tab>Revisao</Tab>       
+                    <Tab>               
+                        <MDBIcon fas icon="calendar-alt" />
+                    </Tab>          
                   </TabList>
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>

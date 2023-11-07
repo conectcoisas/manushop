@@ -6,6 +6,9 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
 
 .topo{ 
     display: flex; 
