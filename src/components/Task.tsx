@@ -5,7 +5,7 @@ import { memo, useEffect } from 'react';
 import { useTaskDragAndDrop } from '../hooks/useTaskDragAndDrop';
 import { TaskModel } from '../utils/models';
 import { useState } from 'react'
-import { FormLabel, Wrap, WrapItem, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import { FormLabel, Wrap, WrapItem, Center, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import { Table, TableContainer, Thead, Tr, Input, Th, Tbody, Tfoot, Td } from '@chakra-ui/react'
 import { useToast, Icon } from '@chakra-ui/react'
 import { useDisclosure, Modal, ModalOverlay, ModalContent, ModalBody, ModalFooter, FormControl, ModalHeader, ModalCloseButton } from '@chakra-ui/react'
@@ -100,14 +100,14 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
                     {overlay}
                     <ModalOverlay />
                     
-                    <ModalContent > 
+                    <ModalContent> 
 
                       <ModalHeader margin='0px' color='blue.500'>         
                             Pedido {task.id} - 06/10/2024 - Shopee 
                       </ModalHeader>    
                       <ModalCloseButton />
                       
-                      <Divider />
+                        <Divider />
                         <FormControl color='blue.500'>                              
                           <SimpleGrid columns={2}  margin='30px' color='blue.500' >
                               <Box>
@@ -225,7 +225,18 @@ function Task({  index,  task,  onUpdate: handleUpdate,  onDropHover: handleDrop
                               </Table>
                             </TableContainer>          
                           </Box> 
-                        </FormControl>                     
+                        </FormControl> 
+                        <Divider />
+                        
+                        <SimpleGrid columns={2}  margin='30px' color='blue.500' >
+                              <Box>                              
+                                <Box display='flex'> 
+                                  <FormLabel margin='0px' padding='0px' color='blue.500'>OBS:</FormLabel>
+                                  <FormLabel margin='0px' padding='0px' marginLeft='5px'> Lorem ipsum mollis imperdiet ultricies vulputate donec neque consequat malesuada sodales, 
+                                risus </FormLabel>
+                                </Box>                                             
+                              </Box>                       
+                          </SimpleGrid>
 
                       <ModalFooter> 
                         <Button colorScheme='blue' mr={3} onClick={() => {                           

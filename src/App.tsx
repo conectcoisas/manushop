@@ -116,7 +116,10 @@ function App() {
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} />    
-                    </TabPanel>             
+                    </TabPanel> 
+                    <TabPanel padding='0px' paddingTop='15px'>
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                    </TabPanel>            
                   </TabPanels>
                 </Tabs> 
             : null }
@@ -188,7 +191,10 @@ function App() {
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.COSTURA} onRezize={btnSetRezize} />    
-                    </TabPanel>             
+                    </TabPanel> 
+                    <TabPanel padding='0px' paddingTop='15px'>
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                    </TabPanel>            
                   </TabPanels>
                 </Tabs>
             : null }
@@ -204,7 +210,10 @@ function App() {
                   <TabPanels>
                     <TabPanel padding='0px' paddingTop='15px'>
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
-                    </TabPanel>             
+                    </TabPanel> 
+                    <TabPanel padding='0px' paddingTop='15px'>
+                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                    </TabPanel>            
                   </TabPanels>
                 </Tabs> 
             : null }
