@@ -79,7 +79,7 @@ function App() {
     <main >  
         <Center margin='20px'>        
           <Text fontSize={{ base: "24px", md: "30px", lg: "36px" }}>
-                    MANUSHOP - Painel de Produção    
+                    MANUSHOP - Painel de Produçã    
           </Text>
         </Center>  
         <Box>    
