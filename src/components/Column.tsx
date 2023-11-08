@@ -13,9 +13,17 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
   const { tasks, addEmptyTask, deleteTask, dropTaskFrom, swapTasks, updateTask } = useColumnTasks(column);
   const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);  
 
-  const ColumnTasks = 
-  tasks.map((task, index) => (  <Task key={task.id} task={task} index={index}  
-    onDropHover={swapTasks}  onUpdate={updateTask}  onDelete={deleteTask} />  ));    
+  const ColumnTasks = tasks.map((task, index) => (  
+  
+  <Task key={task.id} task={task} index={index}  
+    onDropHover={swapTasks}  onUpdate={updateTask}  onDelete={deleteTask} />  )); 
+    
+    
+  console.log("AQUI O QUE QUERO")
+  console.log(ColumnTasks)
+
+
+
 
   var retRezize = {pedidos: 0, corte: 1, silk: 2, costura: 3, revisao: 4 }
   var retRezizeNumber = retRezize[column]
