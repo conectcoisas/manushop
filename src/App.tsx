@@ -13,6 +13,11 @@ import { MDBIcon } from 'mdb-react-ui-kit'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+import { TouchBackend } from 'react-dnd-touch-backend';
+
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const Backend = isMobile ? TouchBackend : HTML5Backend; 
+
 <MDBIcon fas icon="broom" />
 
 import React from 'react'
@@ -102,7 +107,7 @@ function App() {
               </svg>
         </Wrap>  
        
-        <DndProvider backend={HTML5Backend}>  
+        <DndProvider backend={Backend}>  
         <Wrap justify='space-evenly' marginTop='20px' >
 
            { showPedidos ? 
