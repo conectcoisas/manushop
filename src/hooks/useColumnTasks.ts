@@ -12,7 +12,6 @@ function useColumnTasks(column: ColumnType) {
 
   const [tasks, setTasks] = useTaskCollection();
   const columnTasks = tasks[column];
-
   const addEmptyTask = useCallback(() => {
 
     debug(`Adicionar Pedido em ${column}`);

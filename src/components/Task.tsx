@@ -12,7 +12,6 @@ import React from 'react'
 import { SimpleGrid, Divider, Stack, Image } from '@chakra-ui/react'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 
-
 type TaskProps = {
   index: number;
   task: TaskModel;

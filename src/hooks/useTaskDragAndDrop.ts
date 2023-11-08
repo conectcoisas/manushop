@@ -8,6 +8,7 @@ export function useTaskDragAndDrop<T extends HTMLElement>(
   handleDropHover: (i: number, j: number) => void,
 ) {
   const ref = useRef<T>(null);
+  
 
   const [{ isDragging }, drag] = useDrag<
     DragItem,

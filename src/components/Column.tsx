@@ -6,8 +6,6 @@ import Task from './Task';
 import { useState } from 'react'
 import { ExternalLinkIcon, PhoneIcon, SearchIcon , DeleteIcon } from '@chakra-ui/icons';
 
-
-
 function Column({ width, column, onRezize }: { width: string, column: ColumnType, onRezize: Function}) {
 
   const { tasks, addEmptyTask, deleteTask, dropTaskFrom, swapTasks, updateTask } = useColumnTasks(column);

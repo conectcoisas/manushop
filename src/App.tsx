@@ -73,6 +73,7 @@ function App() {
     />
   )
 
+
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
   return (
@@ -89,8 +90,7 @@ function App() {
                 <DrawerHeader borderBottomWidth='1px'>Configurações</DrawerHeader>
                 <DrawerBody>
                   <p>Adicionar Colaborador</p>
-                  <p>Adicionar Produto</p>
-                  <p>Adicionar Categoria</p>
+                  <p>Adicionar Produto</p>         
                 </DrawerBody>
               </DrawerContent>
             </Drawer>

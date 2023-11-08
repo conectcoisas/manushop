@@ -12,6 +12,8 @@ export function swap<T>(arr: T[], i: number, j: number): T[] {
   return copy;
 }
 
+
+
 export function pickChakraRandomColor(variant = '') { 
   const color = colors[Math.floor(Math.random() * colors.length)];
   return color;
