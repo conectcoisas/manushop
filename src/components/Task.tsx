@@ -32,11 +32,7 @@ function Task({ index, task, onUpdate: handleUpdate, onDropHover: handleDropHove
   const maxH = 400
 
   const [altura, setAltura] = useState(minH)
-  const [backGround, setBackGround] = useState(task.color)
-
-
-  
-
+  const [backGround, setBackGround] = useState(task.color) 
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const initialRef = React.useRef(null)
@@ -247,8 +243,8 @@ function Task({ index, task, onUpdate: handleUpdate, onDropHover: handleDropHove
           </ModalContent>
 
         </Modal>
-      </Box>
 
+      </Box>
 
     </Box>
   );

@@ -4,7 +4,8 @@ import { ColumnType } from '../utils/enums';
 import { TaskModel } from '../utils/models';
 
 function useTaskCollection() {
-  return useLocalStorage<{[key in ColumnType]: TaskModel[]; }> ('tasks', 
+  
+  return useLocalStorage< {[key in ColumnType]: TaskModel[]; } > ('tasksLocalStorage', 
   {
     pedidos: [
       {

@@ -123,7 +123,7 @@ function App() {
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.PEDIDO} onRezize={btnSetRezize} />    
                     </TabPanel> 
                     <TabPanel padding='0px' paddingTop='15px'>
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                          
                     </TabPanel>            
                   </TabPanels>
                 </Tabs> 
@@ -140,7 +140,7 @@ function App() {
                         <MDBIcon fab icon="accusoft" />
                     </Tab>
                     <Tab>               
-                      <MDBIcon far icon="calendar" />
+                      <MDBIcon far icon="calendar-alt" />
                     </Tab>      
                   </TabList>
                   <TabPanels>
@@ -148,13 +148,13 @@ function App() {
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.CORTE} onRezize={btnSetRezize} />    
                     </TabPanel>
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.SILK} onRezize={btnSetRezize}/>              
+                                    
                     </TabPanel >
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} /> 
+                        
                     </TabPanel>
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} /> 
+                        
                     </TabPanel>  
                   </TabPanels>
                 </Tabs>
@@ -168,7 +168,7 @@ function App() {
                         <MDBIcon fas icon="camera" />
                     </Tab>
                     <Tab>
-                        <MDBIcon far icon="calendar" />
+                        <MDBIcon far icon="calendar-alt" />
                     </Tab>      
                   </TabList>
                   <TabPanels>
@@ -176,10 +176,10 @@ function App() {
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.SILK} onRezize={btnSetRezize} />    
                     </TabPanel >
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize}/>              
+                                     
                     </TabPanel>
                     <TabPanel padding='0px' paddingTop='15px'> 
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.CORTE} onRezize={btnSetRezize} /> 
+                       
                     </TabPanel> 
                   </TabPanels>
                 </Tabs>
@@ -198,7 +198,7 @@ function App() {
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.COSTURA} onRezize={btnSetRezize} />    
                     </TabPanel> 
                     <TabPanel padding='0px' paddingTop='15px'>
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                           
                     </TabPanel>            
                   </TabPanels>
                 </Tabs>
@@ -217,7 +217,7 @@ function App() {
                         <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
                     </TabPanel> 
                     <TabPanel padding='0px' paddingTop='15px'>
-                        <Column width={columnsWhith[rezize][0]} column={ColumnType.REVISAO} onRezize={btnSetRezize} />    
+                           
                     </TabPanel>            
                   </TabPanels>
                 </Tabs> 

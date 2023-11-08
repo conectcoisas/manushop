@@ -14,7 +14,9 @@ function useColumnTasks(column: ColumnType) {
   const columnTasks = tasks[column];
 
   const addEmptyTask = useCallback(() => {
-    debug(`Adicionar Pedido em ${column} danilo`);
+
+    debug(`Adicionar Pedido em ${column}`);
+
     setTasks((allTasks) => {
       const columnTasks = allTasks[column];
 
@@ -22,11 +24,12 @@ function useColumnTasks(column: ColumnType) {
         debug('Muitas tarefas!');
         return allTasks;
       }
-
+      
+      let numID = Math.floor(Math.random() * 99999).toString()
       const newColumnTask: TaskModel = {
-        id:  Math.floor(Math.random() * 99999).toString(),
+        id:  numID,
         //id: uuidv4(),
-        title: `Novo ${column}`,
+        title: `${column} - ${numID}`,
         color: pickChakraRandomColor('.100'),
         column,
       };
@@ -40,7 +43,9 @@ function useColumnTasks(column: ColumnType) {
 
   const deleteTask = useCallback(
     (id: TaskModel['id']) => {
+     
       debug(`Removendo pedido ${id}..`);
+
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];
         return {
@@ -55,7 +60,9 @@ function useColumnTasks(column: ColumnType) {
   const updateTask = useCallback(
 
       (id: TaskModel['id'], updatedTask: Omit<Partial<TaskModel>, 'id'>) => {
+
       debug(`Atualizando pedido ${id} with ${JSON.stringify(updateTask)}`);
+
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];
         return {
@@ -67,6 +74,7 @@ function useColumnTasks(column: ColumnType) {
       });
     },
     [column, setTasks],
+
   );
 
   const dropTaskFrom = useCallback(
@@ -75,36 +83,33 @@ function useColumnTasks(column: ColumnType) {
       
       setTasks((allTasks) => {
         
-        
         const fromColumnTasks = allTasks[from];
         const toColumnTasks = allTasks[column];
-        const movingTask = fromColumnTasks.find((task) => task.id === id);
 
-        console.log(fromColumnTasks)
-        console.log(toColumnTasks)  
-        console.log(movingTask)      
+        //recupera o elemento em drag ( que esta sendo segurado )
+        const movingTask = fromColumnTasks.find((task) => task.id === id);  
 
-        console.log(`Movendo pedido ${movingTask?.id} de ${from} para ${column}`);
+
 
         if (!movingTask) {
           console.log("!movingTask")
           return allTasks;
         }
-
+    
         // remova a tarefa da coluna original e copie-a na coluna de destino              
-        return {
-          ...allTasks,
-          [from]: fromColumnTasks.filter((task) => task.id !== id),
-          [column]: [{ ...movingTask, column }, ...toColumnTasks],
-        };    
+        return { ...allTasks,  [from]: fromColumnTasks.filter((task) => task.id !== id),    [column]: [...toColumnTasks, { ...movingTask, column }],   };  
+
       });
-    },
-    [column, setTasks],
+
+    }, [column, setTasks],
+
   );
   
   const swapTasks = useCallback(
     (i: number, j: number) => {
+      
       debug(`Swapping pedido ${i} with ${j} in ${column} column`);
+      
       setTasks((allTasks) => {
         const columnTasks = allTasks[column];        
         return {

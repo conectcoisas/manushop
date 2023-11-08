@@ -14,22 +14,21 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
   const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);  
 
   const ColumnTasks = tasks.map((task, index) => (  
-  
-  <Task key={task.id} task={task} index={index}  
-    onDropHover={swapTasks}  onUpdate={updateTask}  onDelete={deleteTask} />  )); 
-    
-    
-  console.log("AQUI O QUE QUERO")
-  console.log(ColumnTasks)
-
-
-
+  <Task     
+    key={task.id} 
+    task={task} 
+    index={index}  
+    onDropHover={swapTasks}  
+    onUpdate={updateTask}  
+    onDelete={deleteTask} />  
+  ));       
 
   var retRezize = {pedidos: 0, corte: 1, silk: 2, costura: 3, revisao: 4 }
   var retRezizeNumber = retRezize[column]
 
   return (     
     <Box w={width} margin='0' padding='1px'>  
+      
       <Center padding='20px' paddingTop='0px'>
         <InputGroup>      
           <InputLeftElement onClick={addEmptyTask} >
@@ -38,9 +37,10 @@ function Column({ width, column, onRezize }: { width: string, column: ColumnType
           <Input type='text' placeholder='Pesquisar' />      
         </InputGroup>
       </Center>
+
        <Box ref={dropRef} minHeight='80px'>  
-           {ColumnTasks}             
-      </Box>
+           {ColumnTasks}                 
+       </Box>
     </Box>  
   );
 }
